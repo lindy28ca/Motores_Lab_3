@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
+using UnityEngine.InputSystem;
 
 public class player : MonoBehaviour
 {
@@ -152,4 +151,16 @@ public class player : MonoBehaviour
         ganaste.SetActive(true);
         TiempoDelJuego(0);
     }
+    public void ReadDirection(InputAction.CallbackContext context)
+    {
+        horizontal = context.ReadValue<float>();
+    }
+    public void ReadJump(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+             saltar= true;
+        }
+    }
+    
 }
